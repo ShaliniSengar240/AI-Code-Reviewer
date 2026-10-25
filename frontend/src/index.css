@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-bg: #100d0b;
+  --color-panel: #1c1815;
+  --color-panel-2: #262019;
+  --color-border: #443a2f;
+  --color-text: #f5f3f0;
+  --color-muted: #b8b0a6;
+  --color-accent: #ffc933;
+  --color-accent-dim: #d9a83c;
+  --color-teal: #5eead4;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-success: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle at 50% 0%, #2e2410 0%, #100d0b 42%);
+  background-attachment: fixed;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+.comment-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+.comment-label::before {
+  content: "// ";
+  color: var(--color-muted);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.issue-line-highlight {
+  background: rgba(248, 113, 113, 0.18);
+}
+/* Themed scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+*:hover {
+  scrollbar-color: var(--color-accent-dim) transparent;
+}
+
+/* Fallback for browsers without scrollbar-color support */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 999px;
+    border: 2px solid var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-dim);
+  }
+}
