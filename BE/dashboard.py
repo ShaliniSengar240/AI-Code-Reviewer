@@ -190,7 +190,7 @@ def codereview(
     current_user: dict = Depends(get_current_user),
 ):
     try:
-        result = analyze_code(payload.code, payload.language)
+        result = analyze_code(payload.code, payload.language, payload.focus)
     except Exception:
         raise HTTPException(status_code=502, detail="Gemini review failed")
 
@@ -263,7 +263,7 @@ def list_my_reviews(
     ]
 
 
-@app.get("/review/{reviewId}")
+@app.get("/review/{review_id}")
 def get_review(
     review_id: str,
     current_user: dict = Depends(get_current_user),

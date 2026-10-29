@@ -7,8 +7,8 @@
 
 import { mockUser, mockReviewResponse, mockReviewsByFocus, mockHistory, mockAnalytics } from "./mockData";
 
-const USE_MOCK = true;
-const BASE_URL = "http://localhost:8000";
+const USE_MOCK = false;
+const BASE_URL = "http://127.0.0.1:8000";
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
